@@ -1,0 +1,21 @@
+Assets:
+- ee2556ce1d7fe0712191af1eef182c2a2a67f713@https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubelet
+- c40cc0b66113314e33c74fa8c7ad1119f0ddccf6@https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl
+- 86966c78cc9265ee23f7892c5cad0ec7590cec93@https://storage.googleapis.com/kubernetes-release/network-plugins/cni-8a936732094c0941e1543ef5d292a1f4fffa1ac5.tar.gz
+ClusterName: ${cluster_name}
+ConfigBase: s3://${s3_bucket_id}/${cluster_name}
+InstanceGroupName: ${instance_group_name}
+Tags:
+- _kubernetes_master
+- _kubernetes_pool
+- _protokube
+- _cni_bridge
+- _cni_host_local
+- _cni_loopback
+- _cni_ptp
+- _automatic_upgrades
+- _aws
+channels:
+- s3://${s3_bucket_id}/${cluster_name}/addons/bootstrap-channel.yaml
+protokubeImage:
+  source: kope/protokube:1.4

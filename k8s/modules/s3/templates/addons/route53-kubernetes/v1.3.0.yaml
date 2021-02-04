@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: route53-kubernetes
+  namespace: kube-system
+  labels:
+    app: route53-kubernetes
+spec:
+  replicas: 1
+  selector:
+    app: route53-kubernetes
+  template:
+    metadata:
+      labels:
+        app: route53-kubernetes
+      annotations:
+        iam.amazonaws.com/role: ${route53_role}
+    spec:
+      containers:
+        - image: robinpercy/route53-kubernetes:acd41d
+          name: route53-kubernetes

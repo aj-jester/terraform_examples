@@ -1,0 +1,50 @@
+kind: Addons
+metadata:
+  name: boostrap
+spec:
+  addons:
+  - name: kube-dns
+    version: 1.4.0
+    selector:
+      k8s-addon: kube-dns.addons.k8s.io
+    manifest: kube-dns/v1.4.0.yaml
+  - name: core
+    version: 1.4.0
+    selector:
+      k8s-addon: core.addons.k8s.io
+    manifest: core/v1.4.0.yaml
+  - name: dns-controller
+    version: 1.4.1
+    selector:
+      k8s-addon: dns-controller.addons.k8s.io
+    manifest: dns-controller/v1.4.1.yaml
+  - name: kubernetes-dashboard
+    version: 1.4.0
+    selector:
+      k8s-addon: kubernetes-dashboard.addons.k8s.io
+    manifest: kubernetes-dashboard/v1.4.0.yaml
+  - name: kube2iam
+    version: 1.0.0
+    selector:
+      k8s-addon: kube2iam.addons.k8s.io
+    manifest: kube2iam/latest.yaml
+  - name: route53-kubernetes
+    version: 1.3.0
+    selector:
+      k8s-addon: route53-kubernetes.addons.k8s.io
+    manifest: route53-kubernetes/v1.3.0.yaml
+  - name: fluentd-elasticsearch
+    version: 1.20
+    selector:
+      k8s-addon: fluentd-elasticsearch.addons.k8s.io
+    manifest: fluentd-elasticsearch/v1.20.yaml
+  - name: heapster-influx
+    version: 1.3.0-beta.0
+    selector:
+      k8s-addon: heapster-influx.addons.k8s.io
+    manifest: heapster-influx/1.3.0-beta.0.yaml
+  - name: configmapcontroller
+    version: 2.3.5
+    selector:
+      k8s-addon: configmapcontroller.addons.k8s.io
+    manifest: configmapcontroller/v2.3.5.yaml

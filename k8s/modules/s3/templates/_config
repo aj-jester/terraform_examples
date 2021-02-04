@@ -1,0 +1,23 @@
+metadata:
+  creationTimestamp: "2016-11-11T22:25:46Z"
+  name: ${cluster_name}
+spec:
+  channel: stable
+  cloudProvider: aws
+  configBase: s3://${s3_bucket_id}/${cluster_name}
+  etcdClusters:
+  - etcdMembers:
+${etc_members}
+    name: main
+  - etcdMembers:
+${etc_members}
+    name: events
+  kubernetesVersion: v1.4.3
+  masterPublicName: api.k8s.fotios.sandbox.shuttercloud.org
+  networkCIDR: ${vpc_cidr}
+  networkID: ${vpc_id}
+  networking:
+    kubenet: {}
+  nonMasqueradeCIDR: 100.64.0.0/10
+  zones:
+${subnets}
